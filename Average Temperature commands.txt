@@ -1,0 +1,18 @@
+//starting the hadoop environment
+1. start-all.sh
+2.jps
+
+//creating a jar file
+3.javac AverageDriver.java AverageMapper.java AverageReducer.java -cp $(hadoop classpath)
+4.ls (optional)
+
+//creating an input directory 
+5.hadoop fs -mkdir /input2
+
+6.hadoop fs -copyFromLocal /home/hduser/Desktop/1901 /input2/averageTemp.txt
+
+7.hadoop jar /home/hduser/Desktop/Average.jar AverageDriver /input2/averageTemp.txt /input2/output2
+
+8.hadoop fs -ls /input2
+
+9.hadoop fs -cat /input2/output2/part-r-00000
